@@ -10,6 +10,8 @@ local lshift = bit.lshift
 
 local mutils = require "memutils"
 local stringz = require "stringzutils"
+local memcpy = mutils.memcpy
+local memset = mutils.memset
 
 ffi.cdef[[
 typedef struct MD5Context {
@@ -223,7 +225,7 @@ local function md5(luastr)
 
 	MD5Update(ctx, p, len);
 	MD5Final(hash, ctx);
-	bin2str(buf, hash, ffi.sizeof(hash));
+	stringz.bin2str(buf, hash, ffi.sizeof(hash));
 
 	return ffi.string(buf);
 end

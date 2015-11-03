@@ -316,6 +316,7 @@ return {
 	strdup = strdup,
 
 	strlen = strlen,
+	bin2str = bin2str,
 
 	bintohex = bintohex,
 	hextobin = hextobin,
